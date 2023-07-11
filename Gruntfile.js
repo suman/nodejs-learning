@@ -6,7 +6,7 @@ module.exports = function (grunt) {
           },
           my_target: {
             files: {
-              'output.min.js': ['*.js']
+              'output.min.js: [1]
             }
           }
         }
