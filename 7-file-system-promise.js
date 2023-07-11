@@ -12,7 +12,7 @@ const getFileText = (fileUrl) => {
 }
 
 const result1 =  getFileText('./content/article/first-article.txt');
-result1.then((result) => console.log("First result: ", result));
+result1.then((result) => console.log("first result ", result));
 
 const result2 =  getFileText('./content/article/second-article.txt');
-result2.then((result) => console.log("Second result: ", result));
+result2.then((result) => console.log("second result: ", result));
