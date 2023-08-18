@@ -9,6 +9,7 @@ app.get('/people', (req, res) => {
 })
 
 let jsonParser = bodyParser.json();
+app.use('/people', jsonParser);
 
 app.get('/people/:userId', (req, res) => {
     console.log("something received from frontend")
@@ -23,7 +24,7 @@ app.get('/people/:userId', (req, res) => {
     }
 })
 
-app.put('/people/:userId', jsonParser, (req, res) => {
+app.put('/people/:userId', (req, res) => {
     console.log("something received from frontend ", req.body)
     const {userId} = req.params;
     const name = req.body.name;
@@ -38,7 +39,7 @@ app.put('/people/:userId', jsonParser, (req, res) => {
     }
 })
 
-app.post('/people/', jsonParser, (req, res) => {
+app.post('/people/', (req, res) => {
     console.log("something received from frontend ", req.body)
     const user = req.body;
     if (user) {
@@ -63,6 +64,7 @@ app.delete('/people/:userId', (req, res) => {
         res.send({msg: 'User not found'});
     }
 })
+
 
 
 app.get('*', (req, res) => {
