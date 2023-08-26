@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
-const people = require('./routes/people.js');
-app.use(people);
+const peopleRoute = require('./routes/people.js');
+app.use(peopleRoute);
 
 app.get('*', (req, res) => {
     res.status(400).send({msg: 'Path not found!!!'});
