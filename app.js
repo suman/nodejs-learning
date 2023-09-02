@@ -1,18 +1,12 @@
-const {readFile, writeFile} = require('fs');
+const express = require('express');
+const app = express();
+const peopleRoute = require('./routes/people.js');
+app.use(peopleRoute);
 
-const getFileText = (fileUrl) => {
-    return new Promise((resolve, reject) => {
-        readFile(fileUrl, 'utf8', (err, data) => {
-            if (err) {
-                reject(err);
-            }
-            resolve(data);
-        })
-    })
-}
+app.get('*', (req, res) => {
+    res.status(400).send({msg: 'Path not found!!!'});
+})
 
-const result1 =  getFileText('./content/article/first-article.txt');
-result1.then((result) => console.log("First result: ", result));
-
-const result2 =  getFileText('./content/article/second-article.txt');
-result2.then((result) => console.log("Second result: ", result));
+app.listen(5000, () => {
+    console.log("server is running at 5000")
+});
